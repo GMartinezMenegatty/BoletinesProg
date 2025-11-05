@@ -1,5 +1,5 @@
 #las tuplas no se pueden cambiar
-#l = [10, 20, [30, "treinta", "XXX"], 40, 50]
+#l = [10, 20, [30, "treinta reg", "XXX"], 40, 50]
 #t = (10,20,30,40,50,60,70,80,90,100)
 #print(l[2])
 #print(l[2][1])
