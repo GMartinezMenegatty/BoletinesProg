@@ -39,3 +39,12 @@ class Persoa:
         cadea = cadea + "Nacionalidade: " + self.nacionalidade + "\n"
         cadea = cadea + "Edade: " + str(self.edade) + "\n" '''
         return cadea
+
+    def __eq__(self,outro):
+        return self.dni == outro.dni
+
+    def __gt__(self,outro):
+        return self.edade > outro.edade
+
+    def __lt__(self,outro):
+        return self.edade < outro.edade
