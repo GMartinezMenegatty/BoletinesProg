@@ -12,3 +12,6 @@ class Punto:
 
     def __str__(self):
         return self.toString()
+
+    def __eq__(self, outro):
+        return self.x == outro.x and self.y == outro.y   #comparacion
