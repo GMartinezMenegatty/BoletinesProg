@@ -1,4 +1,4 @@
 from persoa import Persoa
 
-persoa1 = Persoa("Manuel",12,1234567,"Florida","España")
-print(persoa1.nombre(), persoa1.edad())
+persoa1 = Persoa("Manuel",154,"00000400T","Garcia Barbon","Española")
+print(persoa1)
