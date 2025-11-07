@@ -6,12 +6,12 @@ class Punto:
         self.y = y
 
 
-    def toString(self):
-        cadeaPunto = "As coordenadas do punto son: \n\t x = "+ str(self.x) + " \n\t y = "+ str(self.y) #\n\t es para saltar de linea
+    def aCadea(self):
+        cadeaPunto = "As coordenadas son: \n\t x = "+ str(self.x) + " \n\t y = "+ str(self.y) #\n\t es para saltar de linea
         return cadeaPunto
 
     def __str__(self):
-        return self.toString()
+        return self.aCadea()
 
     def __eq__(self, outro):
         return self.x == outro.x and self.y == outro.y   #comparacion
