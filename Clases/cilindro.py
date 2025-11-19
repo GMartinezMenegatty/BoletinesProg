@@ -11,7 +11,7 @@ class Cilindro(Circulo):
        return super().calcularArea() * 2 + super().calcularPerimetro() * self.altura
 
     def calcularVolumen(self):
-        #return math.pi * (self.radio * self.radio) * self.altura
+        #return math.pi * pow (self.radio, 2) * self.altura
         #volume = math.pi * pow(self.radio, 2) * self.altura
         return super().calcularArea() * self.altura
 

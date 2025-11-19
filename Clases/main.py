@@ -24,5 +24,5 @@ c1 = Circulo(2,3,1)
 
 print(c1.aCadea())
 
-cl1 = Cilindro(2,3,1,3)
-print(cl1.aCadea())
+cil = Cilindro (3,2,3, 5)
+print(cil.calcularArea())
