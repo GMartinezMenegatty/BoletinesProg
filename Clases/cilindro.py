@@ -10,4 +10,8 @@ class Cilindro(Circulo):
        #return 2 * math.pi * self.radio * (self.altura * math.pi)
        return super().calcularArea() * 2 + super().calcularPerimetro() * self.altura
 
-    c1 = Cilindro (0, 0 , 2, 3)
+    def calcularVolumen(self):
+        #return math.pi * (self.radio * self.radio) * self.altura
+        #volume = math.pi * pow(self.radio, 2) * self.altura
+        return super().calcularArea() * self.altura
+
