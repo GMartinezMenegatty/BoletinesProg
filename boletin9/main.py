@@ -1,5 +1,6 @@
 from Boletin9_1 import Libro
 from Boletin9_2 import Consumo
+from Boletin9_3 import Coche
 
 class Principal:
     def main():
@@ -23,3 +24,13 @@ class Principal2:
 
 
 Principal2.main()
+
+class Boletin_9_3:
+    def main():
+        car = Coche()
+        car.acelerar(50)
+        car.frenar(20)
+        print("Velocidade final:", car.getVelocidade())
+
+
+Boletin_9_3.main()
