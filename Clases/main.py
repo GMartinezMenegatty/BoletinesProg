@@ -38,6 +38,6 @@ print (hoxe)'''
 esf = Esfera (2, 3, 5)
 print(esf.calcularVolumen())
 
-tor = Toroide (3, 2)
+tor = Toroide (3, 2,5,3)
 print(tor.calcularArea())
-print(tor.calcularVolumen())
+#print(tor.calcularVolumen())

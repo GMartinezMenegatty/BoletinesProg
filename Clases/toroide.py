@@ -23,8 +23,8 @@ class Toroide(Circulo):
         return self.distancia(Punto(self.centroToroX, self.centroToroY))
 
     def calcularArea(self):
-        # R = distancia centro circunferencia e centro toroide
-        # r = R - radio circunferencia
+        # R = distancia centro circunferencia e centro toroide.
+        # r = R - radio circunferencia.
         radioMaior = self.calculoRadioMaior()
         radioMenor = radioMaior - self.radio
         return 4 * math.pi ** 2 * radioMaior * radioMenor

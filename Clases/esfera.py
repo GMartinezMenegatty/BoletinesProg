@@ -10,7 +10,7 @@ class Esfera (Circulo):
 
     def calcularVolumen(self):
         # volume = (4/3) * math.pi * pow (self.radio, 3)
-        # volume = (self.calcularArea() * self.radio) / 3
+        # volume = (self.calcularArea() * self.radio) / 3.
         volume = (4/3) * super().calcularArea() * self.radio
         return volume
 
