@@ -4,6 +4,7 @@ from circulo import Circulo
 from cilindro import Cilindro
 from esfera import Esfera
 from toroide import Toroide
+from hora import Hora
 from data import Data
 
 p1 = Punto(2,3)
@@ -38,6 +39,13 @@ print (hoxe)'''
 esf = Esfera (2, 3, 5)
 print(esf.calcularVolumen())
 
-tor = Toroide (3, 2,5,3)
-print(tor.calcularArea())
+#tor = Toroide (3, 2,5,3)
+#print(tor.calcularArea())
 #print(tor.calcularVolumen())
+
+
+'''
+hora=Hora(21, 11, 25)
+print (hora.aCadea())
+'''
+
