@@ -12,51 +12,6 @@ incrementarMinutos(minutos)
 incrementarSegundos(segundos)
 incrementarHoras(horas)
 mostrarFormato12Horas()
-
----
-class Hora:
-    def __init__(self, horas, minutos, segundos):
-        self.horas = horas
-        self.minutos = minutos
-        self.segundos = segundos
-
-    def setHora(self, horas):
-            self.horas = horas
-
-    def setMinuto(self, minutos):
-        if self.minutos >= 0 and self.minutos <= 59:
-            if self.minutos.isdigit():
-                self.minutos = minutos
-
-    def setSegundo(self, segundos):
-        if self.segundos >= 0 and self.segundos <= 59:
-            if self.segundos.isdigit():
-                self.segundos = segundos
-
-    def getHoras(self):
-        return self.horas
-
-    def getMinutos(self):
-        return self.minutos
-
-    def getSegundos(self):
-        return self.segundos
-
-    def aCadea(self):
-        return "La hora es: " + str(self.horas) + " minutos: " + str(self.minutos) + " segundos: " + str(self.segundos)
----
-    def getHora(self):
-        return self.__horas
-
-    def setMinutos(self, minutos):
-
-    def getMinutos(self):
-        return self.__minutos
-
-    def setSegundos(self, segundos):
-
-    def getSegundos(self):
-        return self.__segundos
 '''
 
 class Hora:
@@ -92,8 +47,61 @@ class Hora:
         else:
             self.__segundo = 0
 
+    def incrementarSegundos2(self, segundos):
+        horas = segundos // 3600
+        segundos = segundos - 3600 * horas
+        self.__hora = (self.__hora + horas) % 24
+        minutos = segundos // 60
+        segundos = segundos - minutos * 60
+        self.__minuto = self.__minuto + minutos
+        if self.__minuto >= 60:
+            self.__minuto = self.__minuto % 60
+            self.__hora = (self.__hora + 1) % 24
+        self.__segundo = self.__segundo + segundos
+        if self.__segundo >= 60:
+            self.__segundo = self.__segundo % 60
+            self.__minuto += 1
+            if self.__minuto >= 60:
+                self.__minuto = self.__minuto % 60
+                self.__hora += 1
+                if self.__hora >= 23:
+                    self.__hora = self.__hora % 24
+
+    def incrementarMinutos(self, minutos):
+        horas = minutos // 60
+        minutos = minutos - 60 * horas
+        self.incrementarHoras(horas)
+        self.__minuto = self.__minuto + minutos
+        if self.__minuto >= 60:
+            self.__minuto = self.__minuto % 60
+            self.incrementarHoras (1)
+
+    def incrementarHoras(self, horas):
+        self.__hora = self.__hora + horas
+
+    def __str__ (self):
+        return str(self.__hora) + ":" + str(self.__minuto) + ":" + str(self.__segundo)
+
+
+'''
+    def incrementarSegundos3(self, segundos):
+        minutos = segundos // 60
+        self.incrementarMinutos(minutos)
+        segundos = segundos - minutos * 60
+        if self.__segundo >= 60:
+            self.__segundo = self.__segundo % 60
+            self.__minuto += 1
+            if self.__minuto >= 60:
+                self.__minuto = self.__minuto % 60
+                self.__hora += 1
+                if self.__hora >= 23:
+                    self.__hora = self.__hora % 24
+'''
+
+'''
     def incrementarSegundos(self, segundos):
         s = segundos % 60
+        segundos = segundos - s
         self.__segundo = self.__segundo + s
         if self.__segundo >= 60:
             self.__segundo = self.__segundo % 60
@@ -103,21 +111,23 @@ class Hora:
                 self.__hora += 1
                 if self.__hora >= 24:
                     self.__hora = self.__hora % 24
-        minutos = segundos / 60
+        minutos = segundos // 60
+        segundos = segundos - minutos % 60
         self.__minuto = self.__minuto + minutos
         if self.__minuto >= 60:
             self.__minuto = self.__minuto % 60
             self.__hora += 1
             if self.__hora >= 24:
                 self.__hora = self.__hora % 24
-        horas = minutos / 60
-        self.__hora = (self.__hora + horas) % 24
+        horas = segundos // 3600
+        self.__hora = self.__hora + horas
+        if self.__hora > 23:
+            self.__hora = self.__hora % 24
+'''
 
-
-
-
-    def __str__ (self):
-        return str(self.__hora) + ":" + str(self.__minuto) + ":" + str(self.__segundo)
-
-h1 = Hora(-3434, "string", 23)
+h1 = Hora(23, 59, 59)
+#h1.incrementarMinutos(7200)
+h2 = Hora(23, 59, 59)
+h2.incrementarSegundos2(1)
+print(h1,h2)
 
