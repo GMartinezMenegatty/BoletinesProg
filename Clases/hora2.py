@@ -1,33 +1,76 @@
-'''
-setHora(horas)
-getHoras()
-setMinutos(minutos)
-getMinutos()
-setSegundos(segundos)
-getSegundos()
 
-converterSegundos()
-converterMinutos()
-incrementarMinutos(minutos)
-incrementarSegundos(segundos)
-incrementarHoras(horas)
-mostrarFormato12Horas()
-'''
 
 class Hora:
-    def __init__(self, hora, minuto, segundo):
+    def __init__(self, hora = 0, *minutoSegundo):
+        #Comprobacion si o formato e int, int, int
+        if isinstance(hora, int):
+            self.__asignacionHoraInt(hora, minutoSegundo)
+
+        if type (hora) == str:
+            self.__asignacionHoraStr (hora)
+
+        if isinstance(hora, list) or isinstance (hora, tuple):
+            self.__asignacionHoraColeccion(hora)
+
+        if isinstance (hora, float):
+            self.__asignacionHoraFloat (hora)
+
+        if type (hora) == Hora:
+            self.asignacionHoraHora (hora)
+
+
+    def __asignacionHoraInt (self, hora, minutoSegundo):
         self.setHora(hora)
-        self.setMinuto(minuto)
-        self.setSegundo(segundo)
+        if minutoSegundo is not None:
+            if len(minutoSegundo) == 1:
+                if isinstance(minutoSegundo[0], int):
+                    self.setMinuto = (minutoSegundo[0])
+            elif len(minutoSegundo) == 2:
+                if isinstance(minutoSegundo[0], int):
+                    self.setMinuto = (minutoSegundo[0])
+                if isinstance(minutoSegundo[1], int):
+                    self.setSegundo = (minutoSegundo[1])
+
+    def __asignacionHoraStr (self, hora):
+        if len(hora) == 8:
+            if hora[2] == ':' and hora [5] == ':':
+                hms = hora.split(':')
+                if hms[0].isnumeric():
+                    h = int(hms[0])
+                    if h >= 0 and h <= 24:
+                        self.setHora(h)
+                if hms[1].isnumeric():
+                    m = int(hms[1])
+                    if m >= 0 and m <= 59:
+                        self.setMinuto = (m)
+                if hms[2].isnumeric():
+                    s = int(hms[2])
+                    if s >= 0 and s <= 59:
+                        self.setSegundo = (s)
+        else:
+            self.setHora (0)
+            self.minuto (0)
+            self.segundo (0)
+
+
+    def __asignacionHoraColeccion(self, hora, minutoSegundo):
+
+
+    def __asignacionHoraFloat(self, hora, minutoSegundo):
+
+
+    def __asignacionHoraHora(self, hora, minutoSegundo):
+
+
+
+
+
 
     def setHora(self, hora):
-        if type(hora) == int:
-            if hora < 24 and hora >= 0:
-                self.__hora = hora
-            else:
-                self.__hora = 0
-        else:
-            self.__hora = 0
+        if hora < 24 and hora >= 0:
+             self.__hora = hora
+         else:
+              self.__hora = 0
 
     def getHora(self):
         return self.__hora
@@ -95,52 +138,8 @@ class Hora:
     minuto = property (getMinuto, setMinuto)
     segundo = property (getSegundo, setSegundo)
 
-
-'''
-    def incrementarSegundos3(self, segundos):
-        minutos = segundos // 60
-        self.incrementarMinutos(minutos)
-        segundos = segundos - minutos * 60
-        if self.__segundo >= 60:
-            self.__segundo = self.__segundo % 60
-            self.__minuto += 1
-            if self.__minuto >= 60:
-                self.__minuto = self.__minuto % 60
-                self.__hora += 1
-                if self.__hora >= 23:
-                    self.__hora = self.__hora % 24
-'''
-
-'''
-    def incrementarSegundos(self, segundos):
-        s = segundos % 60
-        segundos = segundos - s
-        self.__segundo = self.__segundo + s
-        if self.__segundo >= 60:
-            self.__segundo = self.__segundo % 60
-            self.__minuto += 1
-            if self.__minuto >= 60:
-                self.__minuto = self.__minuto % 60
-                self.__hora += 1
-                if self.__hora >= 24:
-                    self.__hora = self.__hora % 24
-        minutos = segundos // 60
-        segundos = segundos - minutos % 60
-        self.__minuto = self.__minuto + minutos
-        if self.__minuto >= 60:
-            self.__minuto = self.__minuto % 60
-            self.__hora += 1
-            if self.__hora >= 24:
-                self.__hora = self.__hora % 24
-        horas = segundos // 3600
-        self.__hora = self.__hora + horas
-        if self.__hora > 23:
-            self.__hora = self.__hora % 24
-'''
-
 h1 = Hora(23, 59, 59)
-#h1.incrementarMinutos(7200)
+# h1.incrementarMinutos(7200)
 h2 = Hora(23, 59, 59)
 h2.incrementarSegundos2(1)
-print(h1,h2)
-
+print(h1, h2)
