@@ -49,9 +49,10 @@ class Pedido:
             total = total + entrada[1] * entrada[0].getPrezo()
 
     def calculoIva(self):
+        iva = self.calcularPrezoTotal() * 0.21
+        return iva
 
-
-    def mostrarCesta(self):
+    def mostrarCesta(self):        
 
 
     def mostrarCesta(self):
