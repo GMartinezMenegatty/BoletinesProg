@@ -1,4 +1,3 @@
-import toroide
 from punto import Punto
 from circulo import Circulo
 from cilindro import Cilindro
@@ -6,6 +5,8 @@ from esfera import Esfera
 from toroide import Toroide
 from hora import Hora
 from data import Data
+from bombilla import Bombilla
+from cliente import Cliente
 
 p1 = Punto(2,3)
 p2 = Punto(9,1)
@@ -48,4 +49,14 @@ print(esf.calcularVolumen())
 hora=Hora(21, 11, 25)
 print (hora.aCadea())
 '''
+
+bombilla1 = Bombilla("ON")
+print(bombilla1.getEstado())
+
+bombilla1.setEstado("OFF")
+print(bombilla1.getEstado())
+
+bombilla1.setEstado("OFF")
+print(bombilla1.getEstado())
+
 
