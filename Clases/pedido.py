@@ -1,4 +1,4 @@
-from cliente import Cliente
+#from cliente import Cliente
 from produto import Produto
 from data import Data
 '''
@@ -52,8 +52,12 @@ class Pedido:
         iva = self.calcularPrezoTotal() * 0.21
         return iva
 
-    def mostrarCesta(self):        
+    def mostrarCesta(self):      
+        for entrada in self.cesta_pedido:
+                print(f"Produto: {entrada[0].getNome()} - Cantidade: {entrada[1]} - Prezo unitario: {entrada[0].getPrezo()} ")  
 
-
-    def mostrarCesta(self):
+    cesta_pedido = property (getCestaPedido)
+    cliente = property (setCliente, getCliente)
+    data = property (setData, getData)
+    codigo_postal = property (setCodigoPostal, getCodigoPostal)
 
