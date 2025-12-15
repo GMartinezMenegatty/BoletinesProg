@@ -1,4 +1,3 @@
-from cliente import Cliente
 from produto import Produto
 from data import Data
 '''
@@ -49,10 +48,6 @@ class Pedido:
             total = total + entrada[1] * entrada[0].getPrezo()
 
     def calculoIva(self):
-
-
-    def mostrarCesta(self):
-
 
     def mostrarCesta(self):
 
