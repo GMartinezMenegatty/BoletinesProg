@@ -7,6 +7,7 @@ from hora import Hora
 from data import Data
 from bombilla import Bombilla
 from cliente import Cliente
+from persoa import Persoa
 
 p1 = Punto(2,3)
 p2 = Punto(9,1)
@@ -44,6 +45,14 @@ print(esf.calcularVolumen())
 #print(tor.calcularArea())
 #print(tor.calcularVolumen())
 
+
+manuel = Persoa("Manuel",53,"00000400T","Garcia Barbon","Española")
+print(manuel)
+
+juan = Persoa("Juan", 34, "00000400T", "Florida", "Española")
+print (manuel == juan)
+print (manuel < juan)
+print (manuel > juan)
 
 '''
 hora=Hora(21, 11, 25)

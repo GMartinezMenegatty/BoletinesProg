@@ -48,3 +48,5 @@ class Persoa:
 
     def __lt__(self,outro):
         return self.edade < outro.edade
+
+
