@@ -2,27 +2,36 @@ from datetime import datetime
 
 class Persoa:
     def __init__(self, nome, dni, cp):
-        self.__nome = nome
-        self.__dni = dni
-        self.__cp = cp
+        self.setNome (nome)
+        self.setDni (dni)
+        self.setCp (cp)
 
     def setNome (self, nome):
-        self.__nome = nome
+        if isinstance (nome, str):
+            nomeSenEspazos = nome.replace(' ', '')
+            if nomeSenEspazos.isalpha():
+                self.__nome = nome
+            else:
+                self.__nome = "XXXX"
 
     def getNome (self):
         return self.__nome
 
     def setDni (self, dni):
-        self.__dni = dni
+        if isinstance(dni, str):
+            self.__dni = dni
+        else:
+            self.__dni = "XXXX"
 
     def getDni (self):
         return self.__dni
 
     def setCp (self, cp):
-        if cp == 5:
-            return True
-        else:
-            return False
+        self.__cp = "00000"
+        if type (cp) == str:
+            if len(cp) == 5:
+                if cp.isnumeric ():
+                    self.__cp = cp
 
     def getCp (self):
         return self.__cp
@@ -38,92 +47,68 @@ class Persoa:
     cp = property (setCp, getCp)
 
 
-class Cliente:
+class Cliente (Persoa):
     def __init__(self, nome, dni, cp, telf):
-        self.__nome = nome
-        self.__dni = dni
-        self.__cp = cp
-        self.__telf = telf
-
-
-    def setNome(self, nome):
-        self.__nome = nome
-
-    def getNome(self):
-        return self.__nome
-
-    def setDni(self, dni):
-        self.__dni = dni
-
-    def getDni(self):
-        return self.__dni
-
-    def setCp(self, cp):
-        self.__cp = cp
-
-    def getCp(self):
-        return self.__cp
+        super().__init__(nome, dni, cp)
+        self.setTelf (telf)
 
     def setTelf(self, telf):
-        for n in telf:
-            if n[0] == "+":
-                if n[3] == " " and n[7] == " " and n[11] == " ":
-                    if len(telf) == 15:
-                        if isinstance (telf, int):
-                            if n >= 0 and n <= 9:
-                                return self.__telf
-            else:
-                return "+00 000 000 000"
+        self.__telf = "+00 000 000 000"
+        if isinstance (telf, str):
+            if len (telf) == 15:
+                if telf[0] == '+' and telf[3] == ' ' and telf[7] == ' ' and telf[11] == ' ':
+                    telefonoSenEspazos = telf[1:].replace(' ', '')
+                    if telefonoSenEspazos.isnumeric():
+                        self.__telf = telf
 
     def getTelf(self):
         return self.__telf
 
     def __str__ (self):
-        return "El nombre es: "+ self.__nome + "El dni es: " + self.__dni + "El Codigo Postal es: " + self.__cp + "El Telefono es: " + self.__telf
+        return super().__str__() + "El Telefono es: " + self.__telf
 
-    nome = property (setNome, getNome)
-    dni = property (setDni, getDni)
-    cp = property (setCp, getCp)
     telf = property (setTelf, getTelf)
 
+class Llamada:
+    def __init__(self, cliente, telfInter, dhIni, dhFin, sainte):
+        self._setCliente (cliente)
+        self.setTelefono (telfInter)
+        self.setDhInicio (dhIni)
+        self.__DhFin = dhFin if isinstance (dhFin, datetime) else None
+        self.__sainte = sainte if isinstance (sainte, bool) else None
 
-class Llamada(Cliente):
-    def __init__(self, cliente, telfInter, data):
-        super().__init__(cliente)
-        self.__telfInter = telfInter
-        self.data = data
-
-    def setCliente(self):
-        return super().setNome, super().setTelf, super().setCp, super().setDni
+    def _setCliente(self, cliente):
+        self.__cliente = cliente if isinstance (cliente, Cliente) else None
 
     def getCliente(self):
-        return self.setCliente
+        return self.__cliente
 
-    def setTelfInter (self, telfInter):
-        self.__telfInter = telfInter
+    def _setTelefono(self, telf):
+        self.__telf = "+00 000 000 000"
+        if isinstance (telf, str):
+            if len (telf) == 15:
+                if telf[0] == '+' and telf[3] == ' ' and telf[7] == ' ' and telf[11] == ' ':
+                    telefonoSenEspazos = telf[1:].replace(' ', '')
+                    if telefonoSenEspazos.isnumeric():
+                        self.__telf = telf
 
     def getTelfInter(self):
         return self.__telfInter
 
-    def setData (self, data):
-        datetime = 0
-        if data > 0:
-            return True
+    def setDhInicio(self, dhIni):
+        self.__DhInicio = dhIni if isinstance(dhIni, datetime) else None
 
-    def getData(self):
-        return self.data
+    def getDhInicio(self):
+        return self.__DhInicio
 
-    def minutosLlamada(self, data):
-        minutosLlamada = 0
-        if data > 0 :
-            minutosLlamada += 1
+    def minutosLlamada(self):
+        duracion = self.__dhFin - self.__dhIni
+        return duracion.total_seconds()/60
 
     def __str__(self):
         return "El cliente es: " + super().__str__() + "El telefono del interlocutor es: " + self.__telfInter + "La data de la llamada es: " + self.data
 
-    cliente = property (setCliente, getCliente)
-    telfinter = property (setTelfInter, getTelfInter)
-    data = property (setData, getData)
+    telfinter = property (_setTelefono, getTelfInter)
 
 
 class ControlLlamadas (Llamada):
