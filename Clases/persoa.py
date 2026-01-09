@@ -50,3 +50,40 @@ class Persoa:
         return self.edade < outro.edade
 
 
+class Persoa2:
+    def __init__(self, nome, dni, edade):
+        self.setNome (nome)
+        self.setDni (dni)
+        self.setEdade (edade)
+
+    def setNome(self, nome):
+        self.__nome = nome
+
+    def getNome(self):
+        return self.__nome
+
+    def setDni(self, dni):
+        self.__dni = dni
+
+    def getDni(self):
+        return self.__dni
+
+    def setEdade(self,edade):
+        if type(edade) == int:
+            if edade >= 0:
+                self.__edade = edade
+            else:
+                raise ValueError (f"O valor {edade} ten que ser maior que 0")
+        else:
+            raise TypeError(f"O tipo {type(edade)} non e o tipo correcto")
+
+    def getEdade(self):
+        return self.__edade
+
+    nome = property(getNome,setNome)
+    dni = property(getDni,setDni)
+    edade = property(getEdade,setEdade)
+
+
+
+
