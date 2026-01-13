@@ -1,4 +1,5 @@
 from punto import Punto
+from punto2 import Punto2
 from circulo import Circulo
 from cilindro import Cilindro
 from esfera import Esfera
@@ -8,6 +9,19 @@ from data import Data
 from bombilla import Bombilla
 from cliente import Cliente
 from persoa import Persoa, Persoa2
+
+try:
+    p3 = Punto2(5, 6)
+except TypeError as e:
+    print("Error:" + str(e))
+else:
+    p3.setX(7)
+    p3.x = 5
+    print(p3)
+    print(p3.x)
+    print(p3.getY())
+
+
 
 p1 = Punto(2,3)
 p2 = Punto(9,1)
@@ -70,4 +84,4 @@ print (manuel == juan)
 print (manuel < juan)
 print (manuel > juan)
 
-pepe = Persoa2('Pepe', "123456789", 23)
+pepe = Persoa2('Pepe', "12345678T", 23)

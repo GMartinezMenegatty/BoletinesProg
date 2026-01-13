@@ -1,3 +1,5 @@
+from dniError import DniError
+
 
 class Persoa:
     def __init__(self,nome,edade,dni,direccion,nacionalidade):
@@ -63,7 +65,15 @@ class Persoa2:
         return self.__nome
 
     def setDni(self, dni):
-        self.__dni = dni
+        if len(dni) == 9 and dni[:-1].isdigit() and dni[-1].isalpha():
+            letraDni = 'TRWAGMYFPDXBNJZSQVHLCKE'
+            resto = int(dni[:-1]) % 23
+            if letraDni[resto] == dni[-1:].upper():
+                return True
+            else:
+                raise ValueError ("La letra es invalida")
+        else:
+            raise DniError ("La longitud es incorrecto")
 
     def getDni(self):
         return self.__dni

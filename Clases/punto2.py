@@ -20,7 +20,7 @@ class Punto2:
             else:
                 raise ValueError ("El valor es incorrecto")
         else:
-            raise TypeError ("El tipo es incorrecto")
+            raise TypeError ("El tipo de la coordenada es incorrecto")
 
     def getX(self):
         return self.__x
