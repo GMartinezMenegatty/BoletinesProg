@@ -65,15 +65,21 @@ class Persoa2:
         return self.__nome
 
     def setDni(self, dni):
-        if len(dni) == 9 and dni[:-1].isdigit() and dni[-1].isalpha():
-            letraDni = 'TRWAGMYFPDXBNJZSQVHLCKE'
-            resto = int(dni[:-1]) % 23
-            if letraDni[resto] == dni[-1:].upper():
-                return True
+        if len(dni) == 9 :
+            if dni[:-1].isdigit() :
+                if dni[-1].isalpha():
+                    letraDni = 'TRWAGMYFPDXBNJZSQVHLCKE'
+                    resto = int(dni[:-1]) % 23
+                    if letraDni[resto] == dni[-1:].upper():
+                        self.__dni = dni
+                    else:
+                        raise DniError("Letra incorrecta")
+                else:
+                    raise DniError ("El ultimo digito no es una letra")
             else:
-                raise ValueError ("La letra es invalida")
+                raise DniError ("Los digitos no son numeros")
         else:
-            raise DniError ("La longitud es incorrecto")
+            raise DniError ("La longitud es incorrecta")
 
     def getDni(self):
         return self.__dni
@@ -93,6 +99,18 @@ class Persoa2:
     nome = property(getNome,setNome)
     dni = property(getDni,setDni)
     edade = property(getEdade,setEdade)
+
+class Trabajador (Persoa2):
+    def __init__(self, nome, dni, edade, nuss):
+        super().__init__(nome, dni, edade)
+        self.setNuss (nuss)
+
+    def setNuss(self, nuss):
+        if len(nuss) == 16 :
+            if nuss[2] == '/' and nuss[-3] == '/':
+                if nuss[0:1].isdigit() and nuss[3:12].isdigit() and nuss[14:15].isdigit():
+                    self.__nuss = nuss
+
 
 
 

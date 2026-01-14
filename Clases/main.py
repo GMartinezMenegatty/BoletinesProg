@@ -9,6 +9,8 @@ from data import Data
 from bombilla import Bombilla
 from cliente import Cliente
 from persoa import Persoa, Persoa2
+from dniError import DniError
+
 
 try:
     p3 = Punto2(5, 6)
@@ -84,4 +86,8 @@ print (manuel == juan)
 print (manuel < juan)
 print (manuel > juan)
 
-pepe = Persoa2('Pepe', "12345678T", 23)
+
+try:
+    juan = Persoa2 ( "juan", "00000000T", 23)
+except DniError as e:
+    print(str(e))
