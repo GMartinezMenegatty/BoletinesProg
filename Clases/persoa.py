@@ -1,4 +1,5 @@
 from dniError import DniError
+from nussError import NussError
 
 
 class Persoa:
@@ -110,6 +111,13 @@ class Trabajador (Persoa2):
             if nuss[2] == '/' and nuss[-3] == '/':
                 if nuss[0:1].isdigit() and nuss[3:12].isdigit() and nuss[14:15].isdigit():
                     self.__nuss = nuss
+                else:
+                    raise NussError ("No son numeros")
+            else:
+                raise NussError ("El formato debe ser 'nn/nnnnnnnnnn/nn'")
+        else:
+            raise NussError (f"La longitud de {nuss} es incorrecta")
+
 
 
 

@@ -8,8 +8,9 @@ from hora import Hora
 from data import Data
 from bombilla import Bombilla
 from cliente import Cliente
-from persoa import Persoa, Persoa2
+from persoa import Persoa, Persoa2, Trabajador
 from dniError import DniError
+from nussError import NussError
 
 
 try:
@@ -88,6 +89,6 @@ print (manuel > juan)
 
 
 try:
-    juan = Persoa2 ( "juan", "00000000T", 23)
-except DniError as e:
+    juan = Trabajador ( "juan", "00000000T", 23, "6643333334444/99")
+except NussError as e:
     print(str(e))
