@@ -22,6 +22,8 @@ class Data:
             11: 30,
             12: 31
         }
+        if self.__year is not None:
+            diasmes[day] = diasmes[self.__year]
 
         for mes in diasmes.keys():
             if day > 0 and day <= diasmes[mes]:
@@ -40,10 +42,12 @@ class Data:
         return self.__day
 
     def setMes(self, month):
-        if month>0 and month<13 and self.__year is not None:
+        if month > 0 and month < 13 and self.__year is not None:
             self.__month = month
         else:
             self.__month = None
+            self.__day = None
+            self.__year = None
 
 
     def getMes(self):
@@ -51,12 +55,16 @@ class Data:
 
     def setAno(self, year):
         if year >= 0:
-            self.__year
+            self.__year = year
+        else:
+            self.__year = None
+            self.__month = None
+            self.__day = None
 
     def getAno(self):
         return self.__year
 
-    def eBisiesto(year):
+    def eBisiesto(self, year):
         if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
             return True
         else:
@@ -64,3 +72,4 @@ class Data:
 
     def __str__(self):
         return f"A data é {self.__day}/{self.__month}/{self.__year}"
+

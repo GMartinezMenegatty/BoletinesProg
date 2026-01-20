@@ -2,7 +2,7 @@ from DniError import DniError
 
 # 1.  Dadas as clases mostradas no diagrama UML (Persoa, Deportista), codificar os métodos setter para que si o crear o # obxecto do tipo 
 # persoa se introduce un DNI non válido xere unha excepción do tipo DniNonValido. 
-# Codificar o método setLicenza para que verifique que o formato da licenza sexa  correcto. 
+# Codificar o metodo setLicenza para que verifique que o formato da licenza sexa  correcto.
 # O formato da licenza (aaaadddnnnnnn)  é  da seguinte maneira :
 
 # aaaa, 4 números que representan o ano en curso.
