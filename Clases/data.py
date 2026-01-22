@@ -25,6 +25,7 @@ class Data:
         if self.__year is not None:
             diasmes[day] = diasmes[self.__year]
 
+
         for mes in diasmes.keys():
             if day > 0 and day <= diasmes[mes]:
                 self.__day = day
@@ -37,6 +38,34 @@ class Data:
                     self.__month = None
                     self.__year = None
 
+    def nombre_mes(self):
+        match self.__month:
+            case 1:
+                return "Enero"
+            case 2:
+                return "Febrero"
+            case 3:
+                return "Marzo"
+            case 4:
+                return "Abril"
+            case 5:
+                return "Mayo"
+            case 6:
+                return "Junio"
+            case 7:
+                return "Julio"
+            case 8:
+                return "Agosto"
+            case 9:
+                return "Septiembre"
+            case 10:
+                return "Octubre"
+            case 11:
+                return "Noviembre"
+            case 12:
+                return "Diciembre"
+            case _:
+                return "Mes no válido"
 
     def getDia(self):
         return self.__day
@@ -72,4 +101,8 @@ class Data:
 
     def __str__(self):
         return f"A data é {self.__day}/{self.__month}/{self.__year}"
+
+    dia = property(getDia, setDia)
+    mes = property(getMes, setMes)
+    ano = property(getAno, setAno)
 

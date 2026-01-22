@@ -37,12 +37,25 @@ class CalculadoraBinaria:
             else:
                 return self.__a / self.__b
 
+    def operacion2(self, operando):
+        match operando:
+            case '+':
+                return self.__a + self.__b
+            case '-':
+                return self.__a - self.__b
+            case '*':
+                return self.__a * self.__b
+            case '/':
+                return self.__a / self.__b
+            case _:
+                print ('Operacion no reconocida')
+
     a = property(get_a, set_a)
     b = property(get_b, set_b)
 
 if __name__ == '__main__':
-    calc1 = CalculadoraBinaria(4, 3)
-    print(calc1.operacion('+'))
+    calc1 = CalculadoraBinaria(8, 3)
+    print(calc1.operacion2('-'))
     c2 = CalculadoraBinaria(2, 0)
     print(c2.operacion('/'))
 

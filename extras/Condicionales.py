@@ -44,3 +44,40 @@ match l:
         print (f"Coleccion con los elementos {x}, {y}, {z}")
     case _:
         print ("Formato desconocido")
+
+persoa = {"nome" : "Manuel", "curso" : "Dam", "edade" : 19}
+
+match persoa:
+    case {"nome": nome, "curso": curso}:
+        print (f"Nome: {nome}, curso: {curso}")
+    case {"nome": nome}:
+        print (f"Nome: {nome}")
+    case _:
+        print("Formato desconocido")
+
+class Figura:
+    pass
+
+class Circulo (Figura):
+    def __init__ (self, r):
+        self.radio = r
+
+class Rectangle (Figura):
+    def __init__ (self, ancho, alto):
+        self.ancho = ancho
+        self.alto = alto
+
+f = Circulo (15)
+f = Rectangle (10, 12)
+
+match f:
+    case Circulo (radio = r):
+        print (f"A figura es circulo de {r}")
+    case Rectangle (ancho = ancho, alto = alto):
+        print (f"A figura es rectangulo de {ancho}, {alto} dimensiones")
+    case _:
+        print (f"Figura Desconocida")
+
+
+
+
