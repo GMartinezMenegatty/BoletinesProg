@@ -5,7 +5,7 @@ from cilindro import Cilindro
 from esfera import Esfera
 from toroide import Toroide
 from hora import Hora
-from data import Data
+from data import Data, Data2
 from bombilla import Bombilla
 from cliente import Cliente
 from persoa import Persoa, Persoa2, Trabajador
@@ -95,3 +95,5 @@ except NussError as e:
 
 dia = Data(29,2,2024)
 print(dia)
+outrodia = Data2 ([24,0,2023])
+print("outro dia", outrodia)
