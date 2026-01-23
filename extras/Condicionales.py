@@ -71,13 +71,12 @@ f = Circulo (15)
 f = Rectangle (10, 12)
 
 match f:
-    case Circulo (radio = r):
-        print (f"A figura es circulo de {r}")
-    case Rectangle (ancho = ancho, alto = alto):
-        print (f"A figura es rectangulo de {ancho}, {alto} dimensiones")
+    case Circulo(r):
+        print (f"Circulo con radio = {r}")
+    case Rectangle(ancho, alto):
+        print(f"Rectangulo con ancho = {ancho}, alto = {alto}")
     case _:
-        print (f"Figura Desconocida")
-
+        print ("Formato desconocido")
 
 
 
