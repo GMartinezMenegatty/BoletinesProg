@@ -92,3 +92,6 @@ try:
     juan = Trabajador ( "juan", "00000000T", 23, "6643333334444/99")
 except NussError as e:
     print(str(e))
+
+dia = Data(29,2,2024)
+print(dia)

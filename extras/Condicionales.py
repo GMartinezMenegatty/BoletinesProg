@@ -71,12 +71,25 @@ f = Circulo (15)
 f = Rectangle (10, 12)
 
 match f:
-    case Circulo(r):
-        print (f"Circulo con radio = {r}")
-    case Rectangle(ancho, alto):
+    case Circulo(radio = radio):
+        print (f"Circulo con radio = {radio}")
+    case Rectangle(ancho = ancho, alto = alto):
         print(f"Rectangulo con ancho = {ancho}, alto = {alto}")
     case _:
         print ("Formato desconocido")
+
+obxeto = 10.0
+
+match obxeto:
+    case int(x):
+        print (f"E un enteiro {x}")
+    case str (cad):
+        print (f"E unha cadea {cad}")
+    case float (x):
+        print (f"E un float {x}")
+    case _:
+        print("Clase desconocida")
+
 
 
 

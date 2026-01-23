@@ -3,9 +3,9 @@ from calendar import month
 
 class Data:
     def __init__(self, day, month, year):
-        self.setDia(day)
-        self.setMes(month)
         self.setAno(year)
+        self.setMes(month)
+        self.setDia(day)
 
     def setDia(self, day):
         diasmes = {
@@ -22,15 +22,11 @@ class Data:
             11: 30,
             12: 31
         }
-        if self.__year is not None:
-            diasmes[day] = diasmes[self.__year]
 
-
-        for mes in diasmes.keys():
-            if day > 0 and day <= diasmes[mes]:
+        if day > 0 and day <= diasmes[self.__month]:
                 self.__day = day
-            else:
-                if mes == 2 and self.eBisiesto(self.year):
+        else:
+                if self.__month == 2 and self.eBisiesto(self.__year):
                     if day==29:
                         self.__day = 29
                 else:
