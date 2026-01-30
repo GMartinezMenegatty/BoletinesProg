@@ -1,4 +1,5 @@
 import math
+from abc import ABC, abstractmethod
 
 
 class Punto:
@@ -64,4 +65,19 @@ class Punto4:
 
     def __eq__(self, other):
         return self.__x == other.x and self.__y == other.y
+
+class Punto5 :
+    def __init__(self, x, y):
+        self.x(x)
+        self.y(y)
+
+    @property
+    def y(self):
+        return self.__y
+
+    @property
+    def x(self):
+        return self.__x
+
+
 
