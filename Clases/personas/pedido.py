@@ -1,5 +1,3 @@
-from produto import Produto
-from data import Data
 '''
 eliminarPrduto
 engadirProduto

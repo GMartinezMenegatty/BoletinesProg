@@ -1,4 +1,4 @@
-from persoa import Persoa
+from personas.persoa import Persoa
 
 class Alumno(Persoa):
     contar = 3

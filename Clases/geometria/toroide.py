@@ -1,6 +1,6 @@
 import math
-from circulo import Circulo
-from punto import Punto
+from geometria.circulo import Circulo
+from geometria.punto import Punto
 '''
 class Toroide:
     def __init__(self, radio1, radio2):

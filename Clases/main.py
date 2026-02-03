@@ -1,15 +1,11 @@
-from punto import Punto
-from punto2 import Punto2
-from circulo import Circulo
-from cilindro import Cilindro
-from esfera import Esfera
-from toroide import Toroide
-from hora import Hora
-from data import Data, Data2
+from geometria.punto import Punto
+from geometria.punto2 import Punto2
+from geometria.circulo import Circulo
+from geometria.cilindro import Cilindro
+from geometria.esfera import Esfera
+from tiempo.data import Data, Data2
 from bombilla import Bombilla
-from cliente import Cliente
-from persoa import Persoa, Persoa2, Trabajador
-from dniError import DniError
+from personas.persoa import Persoa, Trabajador
 from nussError import NussError
 
 
