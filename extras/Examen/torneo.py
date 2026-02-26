@@ -1,3 +1,5 @@
+from string import punctuation
+
 from Examen.equipo import Equipo
 import csv
 
@@ -163,6 +165,44 @@ class Torneo:
                 except ValueError as e:
                     print(e)
 
+    def crear_ficheiro_clasificacion_CSV (self, nomeFich):
+        """
+        Crea un ficheiro con clasificion do torneo en formato CSV
+
+        :param nomeFich: nome do Ficheiro onde se garda a clsificacion
+        :return:
+        """
+        clasificacion = self.get_clasificacion()
+
+        with open(nomeFich, 'w', newline="") as ficheiro:
+            writer = csv.writer(ficheiro, delimiter=',')
+            writer.writerow(['Equipo', 'Puntuacion'])
+            for equipo in clasificacion:
+                nome = equipo.nome
+                puntuacion = equipo.get_puntos()
+                writer.writerow ([nome, puntuacion])
+
+    def crear_ficheiro_clasificacion_CSV_dict (self, nomeFich):
+        """
+        Crea un ficheiro con clasificion do torneo en formato CSV
+
+        :param nomeFich: nome do Ficheiro onde se garda a clsificacion
+        :return:
+        """
+        clasificacion = self.get_clasificacion()
+
+        with open(nomeFich, 'w', newline="") as ficheiro:
+            cabeceira = ['Nome', 'Puntuacion']
+            writer = csv.DictWriter(ficheiro, fieldnames = cabeceira)
+            writer.writeheader()
+            for equipo in clasificacion:
+                nome = equipo.nome
+                puntuacion = equipo.get_puntos()
+                writer.writerow ({'Nome': nome, 'Puntuacion': puntuacion})
+
+
+
+
 
 if __name__ == "__main__":
     t = Torneo("Tutextrem", 6)
@@ -182,10 +222,17 @@ if __name__ == "__main__":
     print(t.get_clasificacion())
     t.importar_resultados_ficheiro_CSV(
         "/home/dam/PROG/extras/Examen/resultados4xornada.csv")
+    t.crear_ficheiro_clasificacion_CSV("clasificacion.csv")
+    t.crear_ficheiro_clasificacion_CSV_dict("clasificacionDict.csv")
 
     for equipo in t.get_clasificacion():
         print (equipo.nome)
         print (equipo.get_puntos())
-
+'''
+    with open('clasificacion.csv', 'a', newline="") as ficheiro:
+        for equipo in t.get_clasificacion():
+            writer = csv.writer(ficheiro)
+            writer.writerow(t.get_clasificacion())
+'''
 
 
