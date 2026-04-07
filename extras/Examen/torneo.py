@@ -1,6 +1,6 @@
 from string import punctuation
 
-from Examen.equipo import Equipo
+from ExamenNavieira.equipo import Equipo
 import csv
 
 

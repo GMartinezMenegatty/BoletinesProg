@@ -1,5 +1,5 @@
-from Examen.equipo import Equipo
-from Examen.torneo import Torneo
+from ExamenNavieira.equipo import Equipo
+from ExamenNavieira.torneo import Torneo
 
 
 class TorneoXestor:
