@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class exemplosArray {
 
     public static String main (String [] args) {
@@ -27,11 +29,11 @@ public class exemplosArray {
 
         Persoa[] equipo;
         equipo = new Persoa[5];
-        equipo[0] = new Persoa("Ramon", "4567U", 23);
-        equipo[1] = new Persoa("Jose", "8642H", 32);
-        equipo[2] = new Persoa("Carmen", "9876Y", 41);
-        equipo[3] = new Persoa("Tina", "1234R", 17);
-        equipo[4] = new Persoa("Pili", "3258T", 33);
+        equipo[0] = new Persoa("Ramon", "4567U", 23, 1.60);
+        equipo[1] = new Persoa("Jose", "8642H", 32, 1.50);
+        equipo[2] = new Persoa("Carmen", "9876Y", 41, 1.50);
+        equipo[3] = new Persoa("Tina", "1234R", 17, 1.79);
+        equipo[4] = new Persoa("Pili", "3258T", 33, 1.60);
 
 
 //        int mediaEdade() {
@@ -103,5 +105,6 @@ public class exemplosArray {
 //        }
 
 
+        return "";
     }
 }
