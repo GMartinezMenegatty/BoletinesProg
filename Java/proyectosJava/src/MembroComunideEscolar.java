@@ -1,27 +1,30 @@
-public class MembroComunideEscolar extends Persoa {
-    private int codigoCentro;
-    private String nomeCentro;
-
-    public MembroComunideEscolar (String nome, String dni, int edade, int codCentro, String nomCentro){
-        super(nome,dni,edade);
-        this.codigoCentro = codCentro;
-        this.nomeCentro = nomCentro;
-    }
-
-    public MembroComunideEscolar() {
-        super();
-        this.codigoCentro = 0;
-        this.nomeCentro = "desconocido";
-
-    }
-
-    public int getCodigoCentro() {
-        return this.codigoCentro;
-    }
-
-    public void setCodigoCentro(int novoCodCentro){
-        if (novoCodCentro>0) codigoCentro = novoCodCentro;
-        else codigoCentro = 0;
-    }
-
-}
+//
+//
+//public class MembroComunidadeEscolar extends Persoa {
+//    private int codigoCentro;
+//    private String nomeCentro;
+//
+//    public MembroComunidadeEscolar (String nom, String dni, int edade, double estatura, int codCentro, String nomCentro){
+//        super(nom, dni, edade, estatura);
+//        this.codigoCentro = codCentro;
+//        this.nomeCentro = nomCentro;
+//    }
+//
+//    public String getNomeCentro() {
+//        return nomeCentro;
+//    }
+//
+//    public void setNomeCentro(String nomeCentro) {
+//        this.nomeCentro = nomeCentro;
+//    }
+//
+//    public int getCodigoCentro(){
+//        return this.codigoCentro;
+//
+//
+//    }
+//    public void setCodigoCentro(int novoCodcentro){
+//        if (novoCodcentro>0) codigoCentro = novoCodcentro;
+//        else codigoCentro = 0;
+//    }
+//}

@@ -21,12 +21,15 @@ public class Persoa implements Comparable<Persoa>{
     }
 
     public String getNome() {
+
         return this.nome;
     }
 
     public void setNome(String nome) {
+
         this.nome = nome;
     }
+
     public void mostrarDatos () {
         System.out.println("Nome: " + nome + "\nDni: " + dni + "\nEdade: " + edade + "\nEstatura: " + estatura);
     }
@@ -49,6 +52,7 @@ public class Persoa implements Comparable<Persoa>{
     }
 
     public String toString(){
+
         return nome + ", " + dni + ", " + edade + ", " + estatura;
     }
 
